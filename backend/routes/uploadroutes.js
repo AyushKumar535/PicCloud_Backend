@@ -8,14 +8,14 @@ cloudinary.config({
     api_secret: "8pNThx8zUWl8cIDsTVMCazb66Lk"
 });
 router.post('/uploadfiles', async (req, res) => {
-    const { fileurl } = req.body;
-    console.log(fileurl)
-    const uploadResult = await cloudinary.uploader.upload(`https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNp5cdaIatjCHPZfk5xC3CqZFjq7znBp7uWfgM6ZBU0A&s`, {
-        public_id: "test"
+    const { fileUrl } = req.body;
+    console.log(fileUrl)
+    const uploadResult = await cloudinary.uploader.upload(fileUrl, {
+        public_id: "sunny2"
     }).catch((error) => { console.log(error) });
 
     console.log(uploadResult);
-    const optimizeUrl = cloudinary.url(`test`, {
+    const optimizeUrl = cloudinary.url(`sunny2`, {
         fetch_format: 'auto',
         quality: 'auto'
     });
