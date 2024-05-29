@@ -74,6 +74,7 @@ router.post('/login', async (req, res) => {
 })
 
 router.get('/checkLogin', checkAuth, async (req, res) => {
-    res.status(200).json({ message: "User is logged in" });
-})
+    res.status(200).json({ isLogged: true, message: "User is logged in" });
+});
+
 module.exports = router
