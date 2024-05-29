@@ -4,7 +4,7 @@ require('dotenv').config()
 
 const authenticateToken = async (req, res, next) => {
     try {
-        const token = req.cookies.token
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjU1N2Q5NDYxMzhhNjU5ZDUxOTBhZjQiLCJpYXQiOjE3MTY5NjEyMjMsImV4cCI6MTcxNjk2NDIyM30.cAFJ4Piu8IWsJca0-oNrm7XxPiK43OtRtlHV4kmndls'
         // const token = req.headers.authrization?.split(' ')[1];
         console.log("Token ", token);
         if (!token) {

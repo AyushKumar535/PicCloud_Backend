@@ -1,13 +1,15 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+
 const uploadSchema = new mongoose.Schema({
+    mylink: {
+        type: String,
+        required: true
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-    },
-    link: {
-        type: String,
+        required: true
+    }
+});
 
-    },
-})
-const uploadFilesSchema = mongoose.model('upload', uploadSchema);
-module.exports = uploadFilesSchema;
+module.exports = mongoose.model('Upload', uploadSchema);
