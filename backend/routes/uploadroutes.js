@@ -15,7 +15,7 @@ router.post('/uploadfiles', authenticateToken, async (req, res) => {
         if (!fileUrl) {
             return res.status(400).json({ message: "fileUrl is required" });
         }
-        
+
         const userId = req.user._id
         console.log(userId)
 
@@ -54,4 +54,20 @@ router.post('/uploadfiles', authenticateToken, async (req, res) => {
     }
 
 })
+
+// To get All The Images
+router.get('/getAllImages', authenticateToken, async (req, res) => {
+    try {
+        const userId = req.user._id;
+        const allposts = await Upload.find({ user: userId });
+        res.status(200).json({
+            allposts,
+            message: "Posts retrieved successfully"
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: "Error in fetching posts"
+        });
+    }
+});
 module.exports = router
