@@ -5,7 +5,8 @@ const cors = require('cors')
 const app = express();
 
 app.use(cors())
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true, parameterLimit: 1000000, limit: '50mb' }))
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use(cookieParser());
 require('./db')
 

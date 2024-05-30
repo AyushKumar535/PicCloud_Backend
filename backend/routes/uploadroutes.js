@@ -17,24 +17,19 @@ router.post('/uploadfiles', authenticateToken, async (req, res) => {
         }
 
         const userId = req.user._id
-        console.log(userId)
-
 
         const random_Id = Math.floor((Math.random() * 100000000) + 1);
         const uploadResult = await cloudinary.uploader.upload(fileUrl, {
             public_id: `${random_Id}`,
+            chunk_size: 600000
 
 
         }).catch((error) => { console.log(error) });
-
-
-        console.log(uploadResult);
         const optimizeUrl = cloudinary.url(`${random_Id}`, {
             fetch_format: 'auto',
             quality: 'auto'
         });
 
-        console.log("Optimize URL", optimizeUrl);
 
         const newLink = new Upload({
             mylink: optimizeUrl,
@@ -43,13 +38,15 @@ router.post('/uploadfiles', authenticateToken, async (req, res) => {
         await newLink.save();
         res.status(201).json({
             message: "File uploaded Successfully",
-            optimizeUrl
+            optimizeUrl,
+            isUploaded: true
         })
 
     } catch (error) {
         res.status(500).json({
             message: "Some error occcured",
-            error
+            error,
+            isUploaded: false
         })
     }
 
