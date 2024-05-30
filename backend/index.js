@@ -6,6 +6,7 @@ const app = express();
 
 app.use(cors({
     origin: 'https://pic-cloud-frontend.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }));
 app.use(bodyParser.urlencoded({ extended: true, parameterLimit: 1000000, limit: '50mb' }))
