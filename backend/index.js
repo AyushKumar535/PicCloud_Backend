@@ -5,8 +5,8 @@ const cors = require('cors')
 const app = express();
 
 app.use(cors({
+    origin: 'https://pic-cloud-frontend.vercel.app'
     credentials: true,
-    origin: 'https://pic-cloud-frontend.vercel.app/'
 }));
 app.use(bodyParser.urlencoded({ extended: true, parameterLimit: 1000000, limit: '50mb' }))
 app.use(bodyParser.json({ limit: '50mb' }));
