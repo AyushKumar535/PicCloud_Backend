@@ -5,7 +5,7 @@ const cors = require('cors')
 const app = express();
 
 app.use(cors({
-    origin: 'https://pic-cloud-frontend-cnov.vercel.app',
+    origin: 'http://localhost:3000',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }));
