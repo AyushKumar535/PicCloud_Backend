@@ -30,5 +30,5 @@
 - Explore other users' uploads and discover new content.
 
 ## Credits
-- Built by Sunny Srivastava
+- Built by Ayush Kumar
 - Special thanks to Cloudinary for providing cloud storage services.
