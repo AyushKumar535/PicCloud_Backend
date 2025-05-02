@@ -4,9 +4,21 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors')
 const app = express();
 
+const allowedOrigins = [
+  'https://filesharing-gqo8f7vsf-ayushkumars-projects.vercel.app',
+  'https://filesharing-ochre.vercel.app'
+];
+
 app.use(cors({
     // origin: 'https://filesharing-gqo8f7vsf-ayushkumars-projects.vercel.app',
-    origin: 'https://filesharing-ochre.vercel.app/',
+    // origin: 'https://filesharing-ochre.vercel.app/',
+    origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }));
