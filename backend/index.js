@@ -5,7 +5,8 @@ const cors = require('cors')
 const app = express();
 
 app.use(cors({
-    origin: 'https://filesharing-gqo8f7vsf-ayushkumars-projects.vercel.app',
+    // origin: 'https://filesharing-gqo8f7vsf-ayushkumars-projects.vercel.app',
+    origin: 'https://filesharing-ochre.vercel.app/',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }));
