@@ -18,7 +18,7 @@
 - Cloud Storage: Cloudinary
 
 ## Setup Instructions
-- Clone the repository: git clone https://github.com/s21sd/PicCloud_Frontend
+- Clone the repository: git clone (https://github.com/AyushKumar535/PicCloud_Frontend)
 - Install dependencies:
 - Frontend: cd frontend && npm install
 - Backend: cd backend && npm install
